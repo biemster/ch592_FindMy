@@ -76,10 +76,10 @@
  * 默认配置值
  */
 #ifndef BLE_MAC
-#define BLE_MAC                             FALSE
+#define BLE_MAC                             TRUE
 #endif
 #ifndef DCDC_ENABLE
-#define DCDC_ENABLE                         FALSE
+#define DCDC_ENABLE                         TRUE
 #endif
 #ifndef HAL_SLEEP
 #define HAL_SLEEP                           FALSE

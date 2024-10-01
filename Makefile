@@ -8,7 +8,8 @@ TOOLCHAIN_PREFIX := riscv-none-elf
 
 
 APP_C_SRCS += \
-  ./src/main.c
+  ./src/main.c \
+  ./src/broadcaster.c
 
 
 SDK_BLE_HAL_C_SRCS := \
