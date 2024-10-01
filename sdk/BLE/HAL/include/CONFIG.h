@@ -146,7 +146,7 @@
 #endif
 
 extern uint32_t MEM_BUF[BLE_MEMHEAP_SIZE / 4];
-extern const uint8_t MacAddr[6];
+extern uint8_t MacAddr[6];
 
 #endif
 

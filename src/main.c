@@ -2,7 +2,7 @@
 #include "HAL.h"
 #include "broadcaster.h"
 
-static const uint8_t public_key[] = {
+uint8_t public_key[] = {
     0x11,0x22,0x33,0x44,0x55,0x66,0x77,0x88,0x99,0xaa,0xbb,0xcc,0xdd,0xef,
     0xfe,0xdd,0xcc,0xbb,0xaa,0x99,0x88,0x77,0x66,0x55,0x44,0x33,0x22,0x11
 };
@@ -10,14 +10,7 @@ static const uint8_t public_key[] = {
 __attribute__((aligned(4))) uint32_t MEM_BUF[BLE_MEMHEAP_SIZE / 4];
 
 #if(defined(BLE_MAC)) && (BLE_MAC == TRUE)
-const uint8_t MacAddr[6] = {
-    public_key[0] | 0xc0,
-    public_key[1],
-    public_key[2],
-    public_key[3],
-    public_key[4],
-    public_key[5],
-};
+uint8_t MacAddr[6] = {0xAA, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 #endif
 
 __HIGH_CODE
@@ -45,10 +38,6 @@ int main(void)
     GPIOA_ModeCfg(bTXD1, GPIO_ModeOut_PP_5mA);
     UART1_DefInit();
 #endif
-    PRINT("%s\n", VER_LIB);
-    CH59x_BLEInit();
-    HAL_Init();
-    GAPRole_BroadcasterInit();
 
     // GAP - Advertisement data (max size = 31 bytes, though this is
     // best kept short to conserve power while advertisting)
@@ -67,6 +56,16 @@ int main(void)
     memcpy(&advertData[7], &public_key[6], 22);
     advertData[29] = public_key[0] >> 6;
 
+    MacAddr[0] = public_key[0] | 0xc0,
+    MacAddr[1] = public_key[1],
+    MacAddr[2] = public_key[2],
+    MacAddr[3] = public_key[3],
+    MacAddr[4] = public_key[4],
+    MacAddr[5] = public_key[5],
+
+    CH59x_BLEInit();
+    HAL_Init();
+    GAPRole_BroadcasterInit();
     Broadcaster_Init(advertData, sizeof(advertData));
     Main_Circulation();
 }
