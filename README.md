@@ -7,6 +7,7 @@ Based on [rgoulter/ch592-ble-hid-keyboard-example](https://github.com/rgoulter/c
 The firmware can be compiled with the xpack riscv compiler: https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack
 
 The ELF can be flashed to the CH592 using [wchisp](https://github.com/ch32-rs/wchisp). (Enter the CH592 bootloader by holding down BOOT when connecting it using USB).\
+Also `chprog` (pip install chprog) supports the ch592 now, and since I'm a big fan of @wagiminator's work I will update these instructions and the Makefile soon to use that.
 The SDK for CH592 from the openwch EVT is vendored under ``sdk/``. (Encoding has been changed from gbk to utf-8). 
 
 ``make`` to compile \
