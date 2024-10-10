@@ -2,7 +2,7 @@
 #include "broadcaster.h"
 
 // What is the advertising interval when device is discoverable (units of 625us, min is 160=100ms)
-#define DEFAULT_ADVERTISING_INTERVAL (160*3)
+#define DEFAULT_ADVERTISING_INTERVAL (160*30)
 static uint8_t Broadcaster_TaskID; // Task ID for internal task/event processing
 
 static void Broadcaster_ProcessTMOSMsg(tmos_event_hdr_t *pMsg);

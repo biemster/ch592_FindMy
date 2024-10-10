@@ -1,5 +1,6 @@
 #include "CONFIG.h"
 #include "HAL.h"
+#include "SLEEP.h"
 #include "broadcaster.h"
 
 uint8_t public_key[] = {
