@@ -16,7 +16,10 @@ The SDK for CH592 from the openwch EVT is vendored under ``sdk/``. (Encoding has
 ## Further preparation
 I assume here you are already familiar with the FindMy scripts from `biemster/FindMy`. If you're not, please refer to that repository for further info.
 1. Generate a `.keys` file with `FindMy/generate_keys.py`
-2. Add the key to the firmware using the `prep_fw.py` script like this: `./prep_fw.py <path to .keys file>`
+2. Add the key to the firmware using the `prep_fw.py` script like this (adv-interval is optional, the broadcasting interval in seconds [allowed values are 2,3,5,10,20,30]):
+```bash
+./prep_fw.py --keyfile=<path to .keys file> --adv-interval=5
+```
 3. Flash the new `FindMy_XXXXXXX.bin` file using `chprog FindMy_XXXXXXX`
 
 ## Retrieving the location of the module
